@@ -1,51 +1,118 @@
-@import url('https://fonts.googleapis.com/css2?family=Parkinsans&display=swap');
-body{
-    margin: 0;
-    padding: 0;
-    font-family: "Parkinsans", sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Parkinsans&display=swap");
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Parkinsans", sans-serif;
 }
-.nav{
-    height: 50px;
-    width: 100%;
-    background-color: #565656;
-    position: sticky;
-    top: 0;
+.btn {
+  font-family: "Parkinsans", sans-serif;
+  height: 30px;
+  width: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  cursor: pointer;
+  border: 1px solid #4680ff;
+  border-radius: 6px;
 }
-.flex{
-    display: flex;
+.nav {
+  height: 50px;
+  width: 100%;
+  background-color: #565656;
+  position: sticky;
+  top: 0;
 }
-.anaround{
-    justify-content: space-around;
+.flex {
+  display: flex;
 }
-.navtext{
-    color: #fff;
-    margin: 8px;
+.anaround {
+  justify-content: space-around;
 }
-.navtext h2{
-    margin: 0;
+.navtext {
+  color: #fff;
+  margin: 8px;
 }
-.mb{
-    display: block;
+.navtext h2 {
+  margin: 0;
 }
-.subbtn{
-    cursor: pointer;
+.mb {
+  display: block;
 }
-.left{
-    width: 70%;
-    background-color: red;
-    height: 100vh;
-
+.subbtn {
+  cursor: pointer;
 }
-.right{
-    width: 30%;
-    background-color: yellow;
-    height: 100vh;
+.left {
+  width: 70%;
+  height: 100vh;
+}
+.right {
+  width: 30%;
+  background-color: yellow;
+  height: 100vh;
+}
+.darkside {
+  height: 100vh;
+  width: 100%;
+  background-color: #56565650;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+.popup {
+  height: auto;
+  width: auto;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px;
+}
+.input {
+  height: 30px;
+  width: 200px;
+  border-radius: 4px;
+  border: 1px solid #4680ff;
+  padding: 6px;
+  outline: none;
+  outline-color: none;
+  margin: 10px;
+  font-family: "Parkinsans", sans-serif;
+}
+.input:focus {
+  box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+}
+.card {
+  height: 70px;
+  width: 70px;
+  border-radius: 4px;
+  box-shadow: 0 0 5px 0 #000;
+  text-align: center;
+  padding: 10px;
+  margin: 10px;
+  cursor: pointer;
+}
+.icon {
+  font-size: 30px;
+}
+.grap {
+  flex-wrap: wrap;
+}
+.frmbox {
+  height: auto;
+  width: auto;
+  background-color: #fff;
+  border: 1px solid blueviolet;
+  border-radius: 8px;
+  padding: 8px;
 }
 @media only screen and (max-width: 480px) {
-
-    .mb{
-        display: none;
-    }
-    
-
+  .mb {
+    display: none;
   }
+  .wm {
+    width: 100%;
+  }
+}

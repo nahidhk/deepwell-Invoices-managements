@@ -16,3 +16,29 @@ function showLiveDateTime() {
 }
 setInterval(showLiveDateTime, 1000);
 showLiveDateTime();
+
+function loginload(){
+document.getElementById("username").value = localStorage.getItem("username");
+}
+function logfunction() {
+    let user = {
+        usernamejson: "root",
+        passwordjson: "12345678"
+    }
+    const err = document.getElementById("error");
+    const username = document.getElementById("username");
+    const password = document.getElementById("password");
+
+    if (username.value === user.usernamejson && password.value === user.passwordjson) {
+        localStorage.setItem("username", username.value);
+        err.innerHTML = ""
+        sessionStorage.setItem("login", true);
+        window.location.href='/'
+    } else {
+        err.innerHTML = "error login"
+    }
+}
+
+function clickcard(hrefdata){
+window.location.href="/"+hrefdata
+}
