@@ -108,6 +108,19 @@ body {
   border-radius: 8px;
   padding: 8px;
 }
+.bigcard{
+  height: 200px;
+  width: 200px;
+  border-radius: 10px;
+  box-shadow: 0 0 6px 0 #929191 inset;
+  
+}
+.xl{
+  font-size: 60px;
+}
+.e0fb{
+  color: #1ebbcf;
+}
 @media only screen and (max-width: 480px) {
   .mb {
     display: none;
