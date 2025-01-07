@@ -5,5 +5,13 @@ CREATE TABLE farmers (
     mathername VARCHAR(255),
     phone VARCHAR(15) NOT NULL,
     email VARCHAR(255),
+    address VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+CREATE TABLE groupx (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

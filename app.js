@@ -42,3 +42,5 @@ function logfunction() {
 function clickcard(hrefdata){
 window.location.href="/"+hrefdata
 }
+
+

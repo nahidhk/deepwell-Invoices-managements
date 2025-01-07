@@ -1,7 +1,7 @@
 <?php
 $host = "localhost";
 $username = "root";
-$password = "51614824"; 
+$password = "nahid12345"; 
 $database = "invoice"; 
 
 

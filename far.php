@@ -6,15 +6,10 @@ $fathername = $_POST['fathername'];
 $mathername = $_POST['mathername'];
 $phone = $_POST['phone'];
 $email = $_POST['email'];
-
-
-
-
-
-$sql = "INSERT INTO farmers (name, fathername, mathername, phone, email)
-VALUES ('$name','$fathername','$mathername','$phone','$email')";
-
-
+$address = $_POST['address'];
+$groupx = $_POST['groupx'];
+$sql = "INSERT INTO farmers (name, fathername, mathername, phone, email , address , groupx)
+VALUES ('$name','$fathername','$mathername','$phone','$email','$address' , '$groupx')";
 if ($conn->query($sql) === TRUE) {
     echo "<script>window.location.href='/'</script>";
 } else {
