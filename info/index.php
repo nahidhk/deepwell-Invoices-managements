@@ -15,30 +15,38 @@
             <blockquote>
                 <div class="textcenter">
                     <h2>
-                        Group Regestar and Management
+                        Farmers Info and Management
                     </h2>
                 </div>
                 <hr>
                 <div class="flex anaround">
                     <div class="frmbox textcenter">
-                        <form action="/group/group.php" method="post">
-                            <label for="">Group Name*</label>
-                            <input id="filter" onclick="filterdata()" name='name' type="text" class="input" required
-                                placeholder="Group Name">
-                            <button class="btn">GO</button>
+                        <form action="" method="post">
+                            <label for="">Filter</label>
+                            <input id="filter" name='name' type="text" class="input" required
+                                placeholder="Search all Data">
+                            <button type="button" onclick="filterdata()" class="btn"><i
+                                    class="fa-solid fa-magnifying-glass"></i></button>
                         </form>
                     </div>
                 </div>
             </blockquote>
 
             <!-- Tabel -->
-            <div class="flex center">
-                <main class="border tabscroll">
+
+            <div class="flex center ">
+                <main class="border  tabscroll mbwidth90">
                     <table class="minimalistBlack frmbox">
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Group Name</th>
+                                <th>Farmer Name</th>
+                                <th>Father's Name</th>
+                                <th>Mather's Name</th>
+                                <th>Phone</th>
+                                <th>Group</th>
+                                <th>Address</th>
+                                <th>Email</th>
                                 <th>Create_at</th>
                                 <th>Edit</th>
                             </tr>
@@ -46,7 +54,6 @@
                         <tbody id='showgroup'>
                             <tr>
                                 <td colspan='4'>Loading...</td>
-
                             </tr>
                         </tbody>
                     </table>
@@ -56,7 +63,7 @@
     </section>
     <script src="/app.js"></script>
     <script src="/login.js"></script>
-    <script src='/group/group.js'></script>
+    <script src='/info/info.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/js/all.min.js"
         integrity="sha512-1JkMy1LR9bTo3psH+H4SV5bO2dFylgOy+UJhMus1zF4VEFuZVu5lsi4I6iIndE4N9p01z1554ZDcvMSjMaqCBQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
