@@ -23,7 +23,7 @@ async function displayData(filters = { search: "" }) {
                 <td>${item.address}</td>
                 <td>${item.email}</td>
                 <td>${item.created_at}</td>
-                <td><a href="/info/edit/?i=${item.id}&n=${item.name}&n=${item.fathername}&m=${item.mathername}&p=${item.phone}&gx=${item.groupx}&e=${item.email}&a=${item.address}"><i class="fa-regular fa-pen-to-square"></i></a></td>
+                <td><a href="/info/edit/?i=${item.id}&n=${item.name}&f=${item.fathername}&m=${item.mathername}&p=${item.phone}&gx=${item.groupx}&e=${item.email}&a=${item.address}"><i class="fa-regular fa-pen-to-square"></i></a></td>
             `;
             dataContainer.appendChild(itemElement);
         });
