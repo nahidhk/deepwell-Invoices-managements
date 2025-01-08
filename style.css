@@ -11,8 +11,9 @@ body {
   padding-left: 20px;
   padding-right: 20px;
   cursor: pointer;
-  border: 1px solid #4680ff;
-  border-radius: 6px;
+  background-color: #4680ff;
+  border: 1px dotted #000;
+  color: #fff;
 }
 .nav {
   height: 50px;
@@ -171,6 +172,22 @@ table.minimalistBlack tfoot td {
 .border{
   border: 1px solid #000;
   border-radius: 12px;
+}
+.box{
+  width: 250px;
+  border: 1px solid #4680ff;
+  border-radius: 9px;
+  height: auto;
+  padding: 10px;
+}
+.false{
+  height: 1px;
+  width: 1px;
+  color: #fff;
+  background-color: #ffff;
+  outline: none;
+  border: none;
+  outline-color: none;
 }
 @media only screen and (max-width: 480px) {
   .tabscroll{
