@@ -43,4 +43,10 @@ function clickcard(hrefdata){
 window.location.href="/"+hrefdata
 }
 
-
+function blockset(calldata){
+    document.getElementById(calldata).style.display='block';
+}
+function closeset(calldata){
+    document.getElementById(calldata).style.display='block';
+   
+}
