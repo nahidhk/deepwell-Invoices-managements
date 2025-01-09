@@ -179,6 +179,7 @@ table.minimalistBlack tfoot td {
   border-radius: 9px;
   height: auto;
   padding: 10px;
+  margin: 6px;
 }
 .false{
   height: 1px;

@@ -22,7 +22,8 @@
                 <div class="box">
                     <form action="" method="post">
                         <label for="">Account Number*</label><br>
-                        <input name="accno" required class="input" type="text"><br>
+                        <input list='accountlist' id='accno' name="accno" required class="input" type="number"><br>
+                        <datalist id='accountlist'></datalist>
                         <label for="">Notes</label><br>
                         <input name="nots" class="input" type="text">
                         <label for="">Description*</label><br>
@@ -36,22 +37,21 @@
                             <option selected disabled>Select Opratear</option>
                         </select>
                         <label for="">Invoice Number*</label><br>
-                        <input readonly name="accno" required class="input" type="text"><br>
+                        <input id="inid" readonly name="accno" required class="input" type="text"><br>
 
                 </div>
                 <div class="box">
                     <label for="">Name*</label><br>
-                    <input name="name" readonly class="input" type="text"><br>
+                    <input id='n' name="name" readonly class="input" type="text"><br>
                     <label for="">Fathear's Name*</label><br>
-                    <input name="fname" readonly class="input" type="text"><br>
+                    <input id='fn' name="fname" readonly class="input" type="text"><br>
                     <label for="">Quantity*</label><br>
                     <input name="quantity" readonly required class="input" type="text"><br>
-                    <label for="">Group*</label><br>
-                    <input name="groupx" readonly required class="input" type="text"><br>
+                    <input class='false' id='gx' name="groupx" readonly required class="input" type="text"><br>
                     <label for="">Unit*</label><br>
-                    <input id="inid" name="fname" readonly class="input" type="text"><br><br>
+                    <input name="fname" readonly class="input" type="text"><br><br>
                     <div class="textcenter">
-                        <button class="btn" type='submit'>Save New Invoice</button>
+                        <button id='thebtn' class="btn" type='submit'>Save New Invoice</button>
                     </div>
                     </form>
                 </div>
