@@ -12,7 +12,7 @@
         <div class="row  wm  left ">
         <blockquote>
             <center>
-                <h2>New user Regestar</h2>
+                <h2>New Farmer Regestar</h2>
             </center>
             <hr>
        <div class="flex anaround">
