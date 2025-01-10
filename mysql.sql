@@ -32,3 +32,15 @@ CREATE TABLE users (
     password VARCHAR(500),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP   
 );
+
+
+CREATE TABLE lands (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    account INT,
+    description VARCHAR(255) NOT NULL,
+    depid INT,
+    quantity INT,
+    unit VARCHAR(50) NOT NULL,
+    showunit VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

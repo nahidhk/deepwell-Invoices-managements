@@ -14,7 +14,7 @@ function yuoip() {
         })
         .catch(error => console.error('Error fetching data:', error));
 }
-yuoip();
+
 
 function invoiceid(id) {
     const today = new Date();
@@ -59,6 +59,7 @@ function loadbackendformdata() {
                     mydata.style.border = '1px solid #4680ff'; 
                     n.style.border = '1px solid #4680ff';
                     fn.style.border = '1px solid #4680ff';
+                    dropdown({ search: item.id});
                 }
             });
             if (!found) {
@@ -69,6 +70,8 @@ function loadbackendformdata() {
                 n.style.border = '1px solid red';
                 fn.style.border = '1px solid red';
                 document.getElementById('inid').value='';
+                dropdown({ search: 0 });
+
             }
         })
         .catch((error) => {
@@ -76,3 +79,71 @@ function loadbackendformdata() {
         });
 }
 document.getElementById('accno').addEventListener('input', loadbackendformdata);
+
+
+async function dropdown(filters = { search: "" }) {
+    try {
+        const response = await fetch('/api/landapi.php');
+        const data = await response.json();
+        const dataContainer = document.getElementById("depction");
+        if (!dataContainer) {
+            throw new Error("Element with id 'showunit' not found.");
+        }
+        dataContainer.innerHTML = "";
+        const filteredData = data.filter((item) => 
+            item.account.toLowerCase().includes(String(filters.search).toLowerCase())
+        );
+
+        filteredData.forEach((item) => {
+            const itemElement = document.createElement("option");
+          itemElement.textContent = item.showunit;
+          itemElement.value = item.id;
+            dataContainer.appendChild(itemElement);
+        });
+    } catch (error) {
+        console.error("data error", error);
+    }
+}
+
+
+function appletust1(){
+    setTimeout(appletust, 500);
+}
+
+function appletust(){
+  const datavalue =  document.getElementById('depction');
+
+  const mydata = document.getElementById('dep'); 
+  const unit =  document.getElementById('unit');
+  const qut = document.getElementById('qut');
+  const dpct = document.getElementById('dpct');
+  fetch('/api/landapi.php')
+      .then((response) => response.json())
+      .then((data) => {
+          let found = false;
+          data.forEach((item) => {
+              if (item.id === datavalue.value) {                 
+                  found = true;
+                 unit.value = item.unit;
+                 qut.value = item.quantity;
+                 dpct.value = item.description;
+              }
+          });
+          if (!found) {
+             unit.value='Error'
+          }
+      })
+      .catch((error) => {
+          console.log("Error:", error);
+      });
+
+
+
+
+
+
+
+
+}
+
+

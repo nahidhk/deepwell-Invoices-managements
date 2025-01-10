@@ -21,7 +21,7 @@
                 <hr>
                 <div class="flex anaround">
                     <div class="frmbox">
-                        <form action="/group/group.php" method="post">
+                        <form action="/land/land.php" method="post">
                             <div class="flex anaround">
                                 <div>Name: <br> Father's Name:</div>
                                 <div>
@@ -31,24 +31,29 @@
                             </div>
                             <hr>
                             <label for="">Account Number*</label><br>
-                            <input id='accno' class='input' name='name' type="number" required
+                            <input oninput='filterData()' id='accno' class='input' name='account' type="number" required
                                 placeholder="Account Number"><br>
 
                             <label for="">Description*</label><br>
-                            <select onchange='ifcker()' class='input' name="dep" id="dep">
+                            <select onchange="myif()" class='input' name="depid" id="dep">
                                 <option selected disabled>Select Description</option>
-
                             </select>
-                            <button onclick='blockset("inset")' class="btn" type='button'><i class="fa-solid fa-plus"></i></button><br>
+                            <button onclick='blockset("inset")' class="btn" type='button'><i
+                                    class="fa-solid fa-plus"></i></button><br>
 
+                            <input name='description' class='false' id="depid" type="text">
 
                             <label for="">Quantity*</label><br>
-                            <input class='input' name='name' type="number" required placeholder="Account Number">
+                            <input id='qunt' oninput='valuviwe()' class='input' name='quantity' type="number" required
+                                placeholder="Quantity">
                             <br>
 
                             <label for="">Unit*</label><br>
-                            <input id='unit' readonly class='input' name='name' type="text" required
+                            <input id='unit' readonly class='input' name='unit' type="text" required
                                 placeholder="E,g: kg , ml"><br>
+
+                            <input name='showunit' class='false' type="text" id='showall'>
+
                             <div class="textcenter">
                                 <button class="btn">Save</button>
                             </div>
@@ -64,12 +69,13 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Group Name</th>
-                                <th>Create_at</th>
-                                <th>Edit</th>
+                                <th>Account Number</th>
+                                <th>Description</th>
+                                <th>Create at</th>
+                                <th>Delete</th>
                             </tr>
                         </thead>
-                        <tbody id='showgroup'>
+                        <tbody id='showunit'>
                             <tr>
                                 <td colspan='4'>Loading...</td>
                             </tr>
@@ -100,6 +106,9 @@
     <script src="/login.js"></script>
     <script src='/land/dep.js'></script>
     <script src='/invoice/opra.js'></script>
+    <script>
+    depo();
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/js/all.min.js"
         integrity="sha512-1JkMy1LR9bTo3psH+H4SV5bO2dFylgOy+UJhMus1zF4VEFuZVu5lsi4I6iIndE4N9p01z1554ZDcvMSjMaqCBQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
