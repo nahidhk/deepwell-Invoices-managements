@@ -35,7 +35,7 @@
                                 placeholder="Account Number"><br>
 
                             <label for="">Description*</label><br>
-                            <select class='input' name="dep" id="dep">
+                            <select onchange='ifcker()' class='input' name="dep" id="dep">
                                 <option selected disabled>Select Description</option>
 
                             </select>
@@ -47,7 +47,7 @@
                             <br>
 
                             <label for="">Unit*</label><br>
-                            <input readonly class='input' name='name' type="text" required
+                            <input id='unit' readonly class='input' name='name' type="text" required
                                 placeholder="E,g: kg , ml"><br>
                             <div class="textcenter">
                                 <button class="btn">Save</button>
@@ -72,7 +72,6 @@
                         <tbody id='showgroup'>
                             <tr>
                                 <td colspan='4'>Loading...</td>
-
                             </tr>
                         </tbody>
                     </table>
@@ -84,11 +83,11 @@
     <section id='inset' class="darkside vcc">
         <div class="popup">
             <div class="frmbox">
-                <form action="" method="post">
+                <form action="/land/depo.php" method="post">
                     <label for="">Description*</label><br>
-                    <input class='input' type="text" required name=""><br>
+                    <input class='input' type="text" required name="depo"><br>
                     <label for="">Unit*</label><br>
-                    <input class='input' type="text" required name=""><br>
+                    <input class='input' type="text" required name="unit"><br>
                     <div class="textcenter">
                         <button class="btn">Save</button>
                     </div>
@@ -99,6 +98,7 @@
 
     <script src="/app.js"></script>
     <script src="/login.js"></script>
+    <script src='/land/dep.js'></script>
     <script src='/invoice/opra.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/js/all.min.js"
         integrity="sha512-1JkMy1LR9bTo3psH+H4SV5bO2dFylgOy+UJhMus1zF4VEFuZVu5lsi4I6iIndE4N9p01z1554ZDcvMSjMaqCBQ=="
