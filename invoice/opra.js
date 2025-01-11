@@ -124,8 +124,8 @@ function appletust(){
           data.forEach((item) => {
               if (item.id === datavalue.value) {                 
                   found = true;
-                 unit.value = item.unit;
-                 qut.value = item.quantity;
+                 //unit.value = item.unit;
+                // qut.value = item.quantity;
                  dpct.value = item.description;
               }
           });
@@ -136,14 +136,6 @@ function appletust(){
       .catch((error) => {
           console.log("Error:", error);
       });
-
-
-
-
-
-
-
-
 }
 
 

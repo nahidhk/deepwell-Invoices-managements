@@ -30,10 +30,12 @@
 
 
                         <label for="">Description*</label><br>
-                        <select onchange='appletust()' id='depction' required class="input" name="description"></select><br>
+                        <select onchange='appletust()' id='depction' required class="input"
+                            name="description"></select><br>
 
 
-
+                            <label for="">Crop*</label><br>
+                        <input name="price" required class="input" type="text"><br>
 
                         <label for="">Price*</label><br>
                         <input name="price" required class="input" type="text"><br>
@@ -56,19 +58,19 @@
                     <input id='n' name="name" readonly class="input" type="text"><br>
 
 
-                    <label for="">Fathear's Name*</label><br>
+                    <label for="">Father's Name*</label><br>
                     <input id='fn' name="fname" readonly class="input" type="text"><br>
 
 
                     <label for="">Quantity*</label><br>
-                    <input id='qut' name="quantity" readonly required class="input" type="text"><br>
+                    <input id='qut' name="quantity" required class="input" type="text"><br>
 
-<input id='dpct' type="text">
-                    <input class='fl' id='gx' name="groupx" readonly required class="input" type="text"><br>
+                    <input class='false' id='dpct' type="text">
+                    <input class='false' id='gx' name="groupx" readonly required class="input" type="text"><br>
 
 
                     <label for="">Unit*</label><br>
-                    <input id='unit' name="fname" readonly class="input" type="text"><br><br>
+                    <input id='unit' name="fname" class="input" type="text"><br><br>
 
 
                     <div class="textcenter">
