@@ -35,7 +35,9 @@
 
 
                             <label for="">Crop*</label><br>
-                        <input name="price" required class="input" type="text"><br>
+                        <input name="price" required class="input" type="text">
+                        <button onclick='blockset("inset")' class="btn" type='button'><i
+                                    class="fa-solid fa-plus"></i></button><br><br>
 
                         <label for="">Price*</label><br>
                         <input name="price" required class="input" type="text"><br>
@@ -70,7 +72,10 @@
 
 
                     <label for="">Unit*</label><br>
-                    <input id='unit' name="fname" class="input" type="text"><br><br>
+                    <input id='unit' name="fname" class="input" type="text">
+                    <button onclick='blockset("inset")' class="btn" type='button'><i
+                                    class="fa-solid fa-plus"></i></button><br>
+                    <br><br>
 
 
                     <div class="textcenter">
