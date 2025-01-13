@@ -30,27 +30,20 @@
 
 
                         <label for="">Description*</label><br>
-                        <select onchange='appletust()' id='depction' required class="input"
-                            name="description"></select><br>
+                        <select name="description" onchange='appletust()' id='depction' required class="input" name="description"></select><br>
 
 
                             <label for="">Crop*</label><br>
-                        <input name="price" required class="input" type="text">
-                        <button onclick='blockset("inset")' class="btn" type='button'><i
-                                    class="fa-solid fa-plus"></i></button><br><br>
+                        <select id="crop" name="crop" required class="input" type="text">
+                        <option selected disabled>Select Crops</option>
+                        </select>
+                       <i onclick="apicall('/invoice/setCrop.php')" class="fa-solid fa-plus iconbtn"></i>
+
+                       <label for="">Quantity*</label><br>
+                       <input id='qut' name="quantity" required class="input" type="text"><br>
 
                         <label for="">Price*</label><br>
-                        <input name="price" required class="input" type="text"><br>
-
-
-                        <label for="">Opratear*</label><br>
-                        <select id="opra" required class="input" name="users">
-                            <option selected disabled>Select Opratear</option>
-                        </select>
-
-
-                        <label for="">Invoice Number*</label><br>
-                        <input id="inid" readonly name="accno" required class="input" type="text"><br>
+                        <input name="price" required class="input" type="text"><br>  
 
                 </div>
                 <div class="box">
@@ -63,19 +56,25 @@
                     <label for="">Father's Name*</label><br>
                     <input id='fn' name="fname" readonly class="input" type="text"><br>
 
+                    <label for="">Invoice Number*</label><br>
+                    <input id="inid" readonly name="invoiceid" required class="input" type="text">
 
-                    <label for="">Quantity*</label><br>
-                    <input id='qut' name="quantity" required class="input" type="text"><br>
-
-                    <input class='false' id='dpct' type="text">
-                    <input class='false' id='gx' name="groupx" readonly required class="input" type="text"><br>
-
+                   
 
                     <label for="">Unit*</label><br>
-                    <input id='unit' name="fname" class="input" type="text">
-                    <button onclick='blockset("inset")' class="btn" type='button'><i
-                                    class="fa-solid fa-plus"></i></button><br>
-                    <br><br>
+                    <select id='unit' name="unit" class="input" type="text">
+                    <option selected disabled>Select Units</option>
+                    </select>
+                    <i onclick="apicall('/invoice/setUnit.php')" class="fa-solid fa-plus iconbtn"></i>
+                    <br>
+
+                    <label for="">Opratear*</label><br>
+                        <select id="opra" required class="input" name="users">
+                            <option selected disabled>Select Opratear</option>
+                        </select> <br>
+
+                        <input class='false' id='dpct' id='dpct' type="text">
+                        <input class='false' id='gx' name="groupx" readonly required class="input" type="text"><br>
 
 
                     <div class="textcenter">

@@ -50,3 +50,44 @@ function closeset(calldata){
     document.getElementById(calldata).style.display='block';
    
 }
+
+function apicall(apilink){
+    const apivalue = prompt('Enter The Api Value.');
+    if (apivalue) {
+        const myapilink = `${apilink}?apidata=${apivalue}`; 
+        window.location.href=myapilink;
+    } else {
+        alert('Not Api Value');
+    }
+}
+
+
+
+
+
+
+async function myDismy() {
+    try {
+        const response = await fetch('/api/units.api.php');
+        const data = await response.json();
+        const dataContainer = document.getElementById("units");
+        if (!dataContainer) {
+            throw new Error("Element with id 'showgroup' not found.");
+        }
+       data.forEach((item) => {
+            const itemElement = document.createElement("tr");
+            itemElement.innerHTML = `
+                <td>${item.id}</td>
+                <td>${item.name}</td>
+                <td>${item.created_at}</td>
+                <td><a href="/setting/unit.drop.php?id=${item.id}"><i class="fa-solid fa-trash-can m textred"></i></a></td>
+            `;
+            dataContainer.appendChild(itemElement);
+        });
+    } catch (error) {
+        console.error("data error", error);
+    }
+}
+myDismy();
+
+

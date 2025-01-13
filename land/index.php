@@ -38,8 +38,7 @@
                             <select onchange="myif()" class='input' name="depid" id="dep">
                                 <option selected disabled>Select Description</option>
                             </select>
-                            <button onclick='blockset("inset")' class="btn" type='button'><i
-                                    class="fa-solid fa-plus"></i></button><br>
+                            <i onclick='blockset("inset")' class="fa-solid fa-plus iconbtn"></i><br>
 
                             <input name='description' class='false' id="depid" type="text">
 

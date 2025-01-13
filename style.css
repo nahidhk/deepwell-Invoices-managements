@@ -137,8 +137,22 @@ label{
 .e0fb{
   color: #1ebbcf;
 }
+.be0fb{
+  background-color: #1ebbcf;
+}
 .btn:hover{
   background-color: #1ebbcf; 
+  animation: btnhover 0.4s infinite alternate;
+}
+@keyframes btnhover{
+  0%{
+    border-bottom-right-radius: 15px;
+    border-top-left-radius: 15px;
+  }
+  100%{
+    border-bottom-left-radius: 15px;
+    border-top-right-radius: 15px;
+  }
 }
 table.minimalistBlack {
   text-align: center;
@@ -222,6 +236,24 @@ table.minimalistBlack tfoot td {
 .m{
 font-size: 15pt;
 }
+.iconbtn{
+color: #4680ff;
+cursor: pointer;
+}
+.iconbtn:hover{
+  animation: iconbtn 1s infinite;
+}
+@keyframes iconbtn {
+  0%{
+    color: red;
+    transform: rotateZ(360deg);
+  }
+  100%{
+    color: rgb(255, 0, 242);
+    transform: rotateZ(-360deg);
+  }
+}
+
 @media only screen and (max-width: 480px) {
   .tabscroll{
     overflow: scroll;

@@ -124,8 +124,6 @@ function appletust(){
           data.forEach((item) => {
               if (item.id === datavalue.value) {                 
                   found = true;
-                 //unit.value = item.unit;
-                // qut.value = item.quantity;
                  dpct.value = item.description;
               }
           });
@@ -138,4 +136,33 @@ function appletust(){
       });
 }
 
+function callunits() {
+    fetch('/api/units.api.php')
+        .then(response => response.json())
+        .then(data => {
+            const dataList = document.getElementById('unit');
+            data.forEach(item => {
+                const option1 = document.createElement('option');
+                option1.innerHTML = `<option value="${item.name}">${item.name}</option>`;
+                dataList.appendChild(option1);
+            });
 
+        })
+        .catch(error => console.error('Error fetching data:', error));
+}
+callunits();
+function crops() {
+    fetch('/api/crops.api.php')
+        .then(response => response.json())
+        .then(data => {
+            const dataList = document.getElementById('crop');
+            data.forEach(item => {
+                const option1 = document.createElement('option');
+                option1.innerHTML = `<option value="${item.name}">${item.name}</option>`;
+                dataList.appendChild(option1);
+            });
+
+        })
+        .catch(error => console.error('Error fetching data:', error));
+}
+crops();
