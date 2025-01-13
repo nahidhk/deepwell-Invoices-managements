@@ -91,3 +91,28 @@ async function myDismy() {
 myDismy();
 
 
+async function myCrops() {
+    try {
+        const response = await fetch('/api/crops.api.php');
+        const data = await response.json();
+        const dataContainer = document.getElementById("crops");
+        if (!dataContainer) {
+            throw new Error("Element with id 'showgroup' not found.");
+        }
+       data.forEach((item) => {
+            const itemElement = document.createElement("tr");
+            itemElement.innerHTML = `
+                <td>${item.id}</td>
+                <td>${item.name}</td>
+                <td>${item.created_at}</td>
+                <td><a href="/setting/crop.drop.php?id=${item.id}"><i class="fa-solid fa-trash-can m textred"></i></a></td>
+            `;
+            dataContainer.appendChild(itemElement);
+        });
+    } catch (error) {
+        console.error("data error", error);
+    }
+}
+myCrops();
+
+

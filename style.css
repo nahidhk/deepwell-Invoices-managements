@@ -137,12 +137,19 @@ label{
 .e0fb{
   color: #1ebbcf;
 }
-.be0fb{
-  background-color: #1ebbcf;
-}
+
 .btn:hover{
   background-color: #1ebbcf; 
   animation: btnhover 0.4s infinite alternate;
+}
+.sidemenu{
+  background-color: #dadada; 
+  color: #000000;
+  width: 300px;
+}
+.be0fb{
+  background-color: #dadada;
+  color: #000;
 }
 @keyframes btnhover{
   0%{
