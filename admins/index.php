@@ -21,7 +21,7 @@
                 <hr>
                 <div class="flex anaround">
                     <div class="frmbox">
-                        <form action="/admins/admin.php" method="post">
+                        <form id='admin'>
                             <label for="">Name*</label><br>
                             <input name='name' type="text" class="input" required placeholder="Opratear Name">
                             <br>
@@ -34,8 +34,9 @@
                             <label for="">Pin*</label><br>
                             <input name='pin' type="number" class="input" required placeholder="Opratear Name">
                             <br>
+                            <div id="robotsJST"></div>
                             <div class="textcenter">
-                            <button class="btn">Joined</button>
+                            <button onclick="apirobotsJS({method: 'post', call: '/admins/admin.php', id: 'admin'})" class="btn">Joined</button>
                             </div>
                         </form>
                     </div>
@@ -71,6 +72,8 @@
     <script src='/admins/user.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/js/all.min.js"
         integrity="sha512-1JkMy1LR9bTo3psH+H4SV5bO2dFylgOy+UJhMus1zF4VEFuZVu5lsi4I6iIndE4N9p01z1554ZDcvMSjMaqCBQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="/robotsJST/robotsjs.main.js?v=1.0&cdn=html%php" 
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 
