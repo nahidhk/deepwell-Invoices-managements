@@ -260,6 +260,9 @@ cursor: pointer;
     transform: rotateZ(-360deg);
   }
 }
+.long{
+  height: 40px;
+}
 
 @media only screen and (max-width: 480px) {
   .tabscroll{

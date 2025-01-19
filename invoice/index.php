@@ -30,7 +30,7 @@
 
 
                         <label for="">Description*</label><br>
-                        <select name="description" onchange='appletust()' id='depction' required class="input" name="description"></select><br>
+                        <select name="description" onchange='appletust()' id='depction' required class="long input" name="description"></select><br>
 
 
                             <label for="">Crop*</label><br>
@@ -40,10 +40,10 @@
                        <i onclick="apicall('/invoice/setCrop.php')" class="fa-solid fa-plus iconbtn"></i>
 
                        <label for="">Quantity*</label><br>
-                       <input id='qut' name="quantity" required class="input" type="text"><br>
+                       <input oninput='allamaount()' id='qut' name="quantity" required class="input" type="text"><br>
 
                         <label for="">Price*</label><br>
-                        <input name="price" required class="input" type="text"><br>  
+                        <input oninput='allamaount()' id='price' name="price" required class="input" type="text"><br>  
 
                 </div>
                 <div class="box">
@@ -73,10 +73,13 @@
                             <option selected disabled>Select Opratear</option>
                         </select> <br>
 
-                        <input class='false' id='dpct' id='dpct' type="text">
+                        <input class='false' id='dpct' name='dpct' type="text">
+                        <input name='amaount' id='allamamount' type="text">
                         <input class='false' id='gx' name="groupx" readonly required class="input" type="text"><br>
 
-
+                        <label for="">Inv. Date*</label><br>
+                        <input id='datex' name="date" class="input" type="date"><br>                    
+                        
                     <div class="textcenter">
                         <button id='thebtn' class="btn" type='submit'>Save New Invoice</button>
                     </div>
@@ -90,7 +93,7 @@
     <script src="/login.js"></script>
     <script src="/invoice/opra.js"></script>
     <script>
-    yuoip();
+    yuoip();datex();
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/js/all.min.js"
         integrity="sha512-1JkMy1LR9bTo3psH+H4SV5bO2dFylgOy+UJhMus1zF4VEFuZVu5lsi4I6iIndE4N9p01z1554ZDcvMSjMaqCBQ=="

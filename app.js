@@ -88,7 +88,7 @@ async function myDismy() {
         console.error("data error", error);
     }
 }
-myDismy();
+
 
 
 async function myCrops() {
@@ -113,6 +113,24 @@ async function myCrops() {
         console.error("data error", error);
     }
 }
-myCrops();
 
+function datex(){
+    const datex = document.getElementById('datex');
+    const today = new Date();
+    const month = today.getMonth() + 1;
+    const year = today.getFullYear();
+    const day = today.getDate();
+    const myday =  day < 10 ? `0${day}` : `${day}`;
+    const myonth =  month < 10 ? `0${month}` : `${month}`;
+    const todaydate = `${year}-${myonth}-${myday}`;
+    console.log(todaydate)
+    datex.value = todaydate;
+}
 
+function allamaount(){
+    const x = document.getElementById('price').value;
+    const y = document.getElementById('qut').value;
+    const z = document.getElementById('allamamount');
+    z.value = x*y;
+
+}
