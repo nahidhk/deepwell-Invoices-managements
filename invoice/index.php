@@ -23,14 +23,14 @@
                     <form action="" method="post">
 
                         <label for="">Account Number*</label><br>
-                        <input oninput='appletust1()' id='accno' name="accno" required class="input" type="number"><br>
+                        <input oninput='appletust1()' id='accno' name="accountno" required class="input" type="number"><br>
 
                         <label for="">Notes</label><br>
-                        <input name="nots" class="input" type="text">
+                        <input name="notes" class="input" type="text">
 
 
                         <label for="">Description*</label><br>
-                        <select name="description" onchange='appletust()' id='depction' required class="long input" name="description"></select><br>
+                        <select name="description" onchange='appletust()' id='depction' required class="long input"></select><br>
 
 
                             <label for="">Crop*</label><br>
@@ -74,11 +74,11 @@
                         </select> <br>
 
                         <input class='false' id='dpct' name='dpct' type="text">
-                        <input name='amaount' id='allamamount' type="text">
-                        <input class='false' id='gx' name="groupx" readonly required class="input" type="text"><br>
+                        <input class='false' name='amaount' id='allamamount' type="text">
+                        <input class='false' id='gx' name="groupx" readonly required class="input" type="text">
 
                         <label for="">Inv. Date*</label><br>
-                        <input id='datex' name="date" class="input" type="date"><br>                    
+                        <input id='datex' name="submitdate" class="input" type="date"><br>                    
                         
                     <div class="textcenter">
                         <button id='thebtn' class="btn" type='submit'>Save New Invoice</button>

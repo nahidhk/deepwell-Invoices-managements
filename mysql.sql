@@ -56,3 +56,24 @@ CREATE TABLE Crops (
      name VARCHAR(255) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 )
+
+-- invoice sql command
+CREATE TABLE invoice (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    accountno INT,
+    notes VARCHAR(500) NOT NULL,
+    description VARCHAR(200),
+    crop VARCHAR(200),
+    quantity VARCHAR(200),
+    price INT,
+    name VARCHAR(255) NOT NULL,
+    fname VARCHAR(200) NOT NULL,
+    invoiceid INT,
+    unit VARCHAR(50);
+    users VARCHAR(255),
+    dpct VARCHAR(255),
+    amaount INT,
+    groupx VARCHAR(100);
+    submitdate TIMESTAMP,
+    created TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+)
