@@ -20,7 +20,7 @@
             </div>
             <div class="flex center grap">
                 <div class="box">
-                    <form action="" method="post">
+                    <form action="/invoice/invoice.php" method="post">
 
                         <label for="">Account Number*</label><br>
                         <input oninput='appletust1()' id='accno' name="accountno" required class="input" type="number"><br>

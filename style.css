@@ -263,6 +263,22 @@ cursor: pointer;
 .long{
   height: 40px;
 }
+.amimetead{
+  height: 6px;
+  width: 300px;
+  background-color: #d1d1d1;
+  display: flex;
+}
+.amimeteadx{
+  height: 6px;
+  width: 0px;
+  background-color: #ff9100;
+  animation: ami 80s;
+}
+@keyframes ami {
+  0%{width: 1px;}
+  100%{width: 300px;}
+}
 
 @media only screen and (max-width: 480px) {
   .tabscroll{
