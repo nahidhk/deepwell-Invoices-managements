@@ -72,7 +72,7 @@ CREATE TABLE invoice (
     unit VARCHAR(50),
     users VARCHAR(255),
     dpct VARCHAR(255),
-    amount DECIMAL(15, 2),
+    amaount DECIMAL(15, 2),
     groupx VARCHAR(100),
     submitdate TIMESTAMP,
     created TIMESTAMP DEFAULT CURRENT_TIMESTAMP
