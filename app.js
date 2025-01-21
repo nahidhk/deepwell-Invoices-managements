@@ -134,10 +134,4 @@ function allamaount(){
     z.value = x*y;
 
 }
-function myanyx(){
-    const anyx = document.getElementById('anyx');
-    document.getElementById('point').innerHTML = anyx.clientWidth+'%';
-    if (anyx.clientWidth === 300) {
-      window.location.href='/invoice';
-    } 
-}
+

@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+
+$invoiceid = $_GET['invoiceno'];
+
+?>
 
 <head>
     <link rel="stylesheet" href="/style.css">
@@ -13,13 +18,14 @@
     <br><br><br>
     <div class="flex center">
         <div>
-        <hr>
-        <form action="/printInvoice/onlyInvoice/" method="get">
-            <label for="">one Day Invoice</label>
-        <input name='invoiceid' type="number" id="filter" class="input" placeholder="Print by invoice id" required>
-        <input type="submit" value="Print" class="btn" >
-        </form>
-        <hr>
+            <hr>
+            <form action="/printInvoice/onlyInvoice/" method="get">
+                <label for="">one Day Invoice</label>
+
+              <input name='invoiceid' <?php if (isset($invoiceid)) { echo "type='" . $_GET['type'] . "'"; } else { echo "type='number'"; }; echo"value='" .$invoiceid."'";?> class='input' placeholder='Print by invoice id' required>
+                <input type="submit" value="Print" class="btn">
+            </form>
+            <hr>
         </div>
     </div>
     <script src="/app.js"></script>

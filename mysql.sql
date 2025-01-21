@@ -77,3 +77,9 @@ CREATE TABLE invoice (
     submitdate TIMESTAMP,
     created TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+ALTER TABLE invoice
+ADD less DECIMAL(15, 2),
+ADD netTotal DECIMAL(15, 2),
+ADD due DECIMAL(15, 2),
+ADD receive DECIMAL(15, 2);
+

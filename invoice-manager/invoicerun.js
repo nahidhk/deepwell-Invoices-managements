@@ -30,6 +30,7 @@ async function displayData(filters = { search: "" }) {
                                         <td>${item.amaount}/-</td>
                                         <td>${item.notes}</td>
                                         <th>${item.users}</th>
+                                        <th> <a href='/printInvoice/?invoiceno=${item.invoiceid}&type=type="text"'><i class="fa-solid fa-file-pdf m"></i></a> </th>
                                     
             `;
             dataContainer.appendChild(itemElement);

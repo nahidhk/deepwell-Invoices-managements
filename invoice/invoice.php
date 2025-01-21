@@ -57,6 +57,13 @@ $conn->close();
     <script src="/app.js"></script>
     <script>
       setInterval(myanyx, 1);
+      function myanyx(){
+    const anyx = document.getElementById('anyx');
+    document.getElementById('point').innerHTML = anyx.clientWidth+'%';
+    if (anyx.clientWidth === 300) {
+      window.location.href=`/printInvoice/onlyInvoice/?invoiceid=<?php echo $invoiceid; ?>`;
+    } 
+}
     </script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/js/all.min.js"
         integrity="sha512-1JkMy1LR9bTo3psH+H4SV5bO2dFylgOy+UJhMus1zF4VEFuZVu5lsi4I6iIndE4N9p01z1554ZDcvMSjMaqCBQ=="

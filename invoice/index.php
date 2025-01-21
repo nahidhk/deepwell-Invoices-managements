@@ -10,7 +10,7 @@
 
 <body>
     <?php require_once('../components/nav.html') ?>
-    <section class='flex anaround'>
+    <section class='flex center'>
         <div class="row  wm  left ">
             <div class="textcenter">
                 <h1>
@@ -23,27 +23,29 @@
                     <form action="/invoice/invoice.php" method="post">
 
                         <label for="">Account Number*</label><br>
-                        <input oninput='appletust1()' id='accno' name="accountno" required class="input" type="number"><br>
+                        <input oninput='appletust1()' id='accno' name="accountno" required class="input"
+                            type="number"><br>
 
                         <label for="">Notes</label><br>
                         <input name="notes" class="input" type="text">
 
 
                         <label for="">Description*</label><br>
-                        <select name="description" onchange='appletust()' id='depction' required class="long input"></select><br>
+                        <select name="description" onchange='appletust()' id='depction' required
+                            class="long input"></select><br>
 
 
-                            <label for="">Crop*</label><br>
+                        <label for="">Crop*</label><br>
                         <select id="crop" name="crop" required class="input" type="text">
-                        <option selected disabled>Select Crops</option>
+                            <option selected disabled>Select Crops</option>
                         </select>
-                       <i onclick="apicall('/invoice/setCrop.php')" class="fa-solid fa-plus iconbtn"></i>
+                        <i onclick="apicall('/invoice/setCrop.php')" class="fa-solid fa-plus iconbtn"></i>
 
-                       <label for="">Quantity*</label><br>
-                       <input oninput='allamaount()' id='qut' name="quantity" required class="input" type="text"><br>
+                        <label for="">Quantity*</label><br>
+                        <input oninput='allamaount()' id='qut' name="quantity" required class="input" type="text"><br>
 
                         <label for="">Price*</label><br>
-                        <input oninput='allamaount()' id='price' name="price" required class="input" type="text"><br>  
+                        <input oninput='allamaount()' id='price' name="price" required class="input" type="text"><br>
 
                 </div>
                 <div class="box">
@@ -59,41 +61,80 @@
                     <label for="">Invoice Number*</label><br>
                     <input id="inid" readonly name="invoiceid" required class="input" type="text">
 
-                   
+
 
                     <label for="">Unit*</label><br>
                     <select id='unit' name="unit" class="input" type="text">
-                    <option selected disabled>Select Units</option>
+                        <option selected disabled>Select Units</option>
                     </select>
                     <i onclick="apicall('/invoice/setUnit.php')" class="fa-solid fa-plus iconbtn"></i>
                     <br>
 
                     <label for="">Opratear*</label><br>
-                        <select id="opra" required class="input" name="users">
-                            <option selected disabled>Select Opratear</option>
-                        </select> <br>
+                    <select id="opra" required class="input" name="users">
+                        <option selected disabled>Select Opratear</option>
+                    </select> <br>
 
-                        <input class='false' id='dpct' name='dpct' type="text">
-                        <input class='false' name='amaount' id='allamamount' type="text">
-                        <input class='false' id='gx' name="groupx" readonly required class="input" type="text">
+                    <input class='false' id='dpct' name='dpct' type="text">
+                    <input class='false' name='amaount' id='allamamount' type="text">
+                    <input class='false' id='gx' name="groupx" readonly required class="input" type="text">
 
-                        <label for="">Inv. Date*</label><br>
-                        <input id='datex' name="submitdate" class="input" type="date"><br>                    
-                        
+                    <label for="">Inv. Date*</label><br>
+                    <input id='datex' name="submitdate" class="input" type="date"><br>
+
                     <div class="textcenter">
                         <button id='thebtn' class="btn" type='submit'>Save New Invoice</button>
                     </div>
                     </form>
                 </div>
             </div>
+       
+
+
+
+        <div class='flex center'>
+            <div>
+                <main class="border tabscroll">
+                    <table class="minimalistBlack frmbox">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Date</th>
+                                <th>Invoice ID</th>
+                                <th>Account No</th>
+                                <th>Name</th>
+                                <th>F. Name</th>
+                                <th>Group</th>
+                                <th>Land</th>
+                                <th>Price X</th>
+                                <th>Total Amount</th>
+                                <th>Notes</th>
+                                <th>Staps</th>
+                            </tr>
+                        </thead>
+                        <tbody id='invoices'>
+
+                        </tbody>
+                    </table>
+                </main>
+            </div>
+        </div>
         </div>
     </section>
+    <script src='/invoice-manager/invoicerun.js'></script>
+    <script>
+    displayData();
+    </script>
+
+
+
 
     <script src="/app.js"></script>
     <script src="/login.js"></script>
     <script src="/invoice/opra.js"></script>
     <script>
-    yuoip();datex();
+    yuoip();
+    datex();
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/js/all.min.js"
         integrity="sha512-1JkMy1LR9bTo3psH+H4SV5bO2dFylgOy+UJhMus1zF4VEFuZVu5lsi4I6iIndE4N9p01z1554ZDcvMSjMaqCBQ=="

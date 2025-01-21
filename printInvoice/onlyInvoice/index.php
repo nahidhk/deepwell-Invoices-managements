@@ -1,12 +1,12 @@
 <?php
 require_once("../../config.php");
-
+date_default_timezone_set('Asia/Dhaka');
 // Ensure $conn is defined and properly initialized
 if (!isset($conn)) {
     die("Database connection not found!");
 }
 
-$invoiceid = 2001825; // Replace with dynamic value if needed
+$invoiceid = $_GET['invoiceid']; // Replace with dynamic value if needed
 
 // Fetch invoice details securely using positional placeholders
 $invoiceQuery = "SELECT * FROM invoice WHERE invoiceid = ?";
@@ -51,6 +51,8 @@ $customerData = $customerResult->fetch_assoc();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invoice</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.0/dist/JsBarcode.all.min.js"></script>
 </head>
 
 <body>
@@ -68,79 +70,154 @@ $customerData = $customerResult->fetch_assoc();
     </div>
     <hr>
     <div class="flex anaround">
+        <div id="qrcode"></div>
         <div style='border: 1px  dotted black; padding: 10px;'>
             <h2 class="nomargin">Cash Invoice</h2>
         </div>
+        <div><svg id='barcode'></svg></div>
     </div>
     <hr>
-    <div class="flex center">
-        <!-- Coustomear Info -->
-        <div style='width: 100%' class="flex beet">
-            <div class="flex anaround">
-                <div style='width: 150px;'>
-                    <p>Invoice No</p>
-                    <p>Coustomare Name</p>
-                    <p>Father's Name</p>
+    <blockquote>
+        <div class="flex center">
+            <!-- Coustomear Info -->
+            <div style='width: 100%' class="flex beet">
+                <div class="flex anaround">
+                    <div style='width: 150px;'>
+                        <p>Invoice No</p>
+                        <p>Customer Name</p>
+                        <p>Father's name</p>
+                        <p>Customer Reg No</p>
+                    </div>
+                    <div>
+
+                        <p>: <b><?php echo $_GET['invoiceid'] ?></b></p>
+                        <p>: <b><?php echo $customerData['name'] ?></b></p>
+                        <p>: <?php echo $customerData['fathername'] ?></p>
+                        <p>: RD<?php echo $customerData['id'] ?></p>
+                    </div>
                 </div>
-                <div>
-                    <p>: <b>1234567890</b></p>
-                    <p>: <b>MD NAHID HK</b></p>
-                    <p>: Md Fozlus Haque</p>
-                </div>
-            </div>
-            <div class="flex beet">
-                <div style='width: 100px;'>
-                    <p>Invoice Date</p>
-                    <p>Address</p>
-                    <p>Phone</p>
-                </div>
-                <div>
-                    <p>: <b>12/12/2020</b></p>
-                    <p>: ataikula pabna bangla desh</p>
-                    <p>: +8801877357091</p>
+                <div class="flex beet">
+                    <div style='width: 100px;'>
+                        <p>Date</p>
+                        <p>Invoice Date</p>
+                        <p>Address</p>
+                        <p>Phone</p>
+                    </div>
+                    <div>
+                        <p>: <?php echo date('d/m/y h:i:s A') ?></p>
+                        <p>: <b><?php echo $invoices[0]['submitdate']?></b></p>
+                        <p>: <?php echo $customerData['address'] ?></p>
+                        <p>: +88<?php echo $customerData['phone'] ?></p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <hr>
+        <hr>
 
-    <!-- tabel -->
-    <main class="border tabscroll">
-        <table class="minimalistBlack frmbox">
+        <!-- tabel -->
+
+        <table class="minimalistBlack">
             <thead>
                 <tr>
                     <th>#</th>
-                    <td>ID</td>
-                    <th>Date</th>
+
+                    <th>Detels</th>
                     <th>Land</th>
                     <th>Price X</th>
                     <th>Total Amount</th>
-                    <th>Notes</th>
                     <th>Staps</th>
                 </tr>
             </thead>
             <tbody>
- <?php 
-                $counter = 1; // For row numbering
+                <?php 
+                  $totalAmount = 0; 
+                  $totalLess = 0;
+                 $netTotal = 0;
+                 $receivedAmount = 0;
+                 $dueAmount = 0;
+                $counter = 1; 
                 foreach ($invoices as $invoice) {
                     echo "<tr>";
-                    echo "<td>" . $counter . "</td>"; // Row number
-                    echo "<td>" . htmlspecialchars($invoice['id']) . "</td>"; // ID column
-                    echo "<td>" . htmlspecialchars($invoice['submitdate']) . "</td>"; // Date column
-                    echo "<td> (" . htmlspecialchars($invoice['description']) . ")" .$invoice['dpct']. $invoice['quantity'].  $invoice['unit']. $invoice['crop'].  "</td>"; // Land column
-                    echo "<td>" . htmlspecialchars($invoice['price']) . "</td>"; // Price X column
-                    echo "<td>" . htmlspecialchars($invoice['amaount']) . "</td>"; // Total Amount column
-                    echo "<td>" . htmlspecialchars($invoice['notes']) . "</td>"; // Notes column
-                    echo "<td>" . htmlspecialchars($invoice['users']) . "</td>"; // Staps column
+                    echo "<td>" . htmlspecialchars($invoice['id']) . "</td>"; 
+                    echo "<td>" . htmlspecialchars($invoice['notes']) . "</td>";
+                    echo "<td> (" . htmlspecialchars($invoice['description']) . ") " .$invoice['dpct']." ". $invoice['quantity']." ".  $invoice['unit']." ". $invoice['crop'].  "</td>"; 
+                    echo "<td>" . number_format($invoice['price'],2) . "/-</td>"; 
+                    echo "<td>" . number_format($invoice['amaount'], 2) . "/-</td>"; 
+                    echo "<td>" . htmlspecialchars($invoice['users']) . "</td>"; 
                     echo "</tr>";
+                    $amount = (float)$invoice['amaount']; 
+                    $totalAmount += $amount;
+                    $less = (float)$invoice['less'];
+                    $totalLess += $less;
+                    $netTotal = $totalAmount - $totalLess;
+                    $receivedAmount = (float)$invoice['receive'];
+                    $receiveall += $receivedAmount;
+                    $totalDue = $netTotal - $receiveall;
                     $counter++;
                 }
+               
  ?>
-
             </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3" class="textcenter"></td>
+                    <th>Total Amount</th>
+                    <th><?php echo number_format($totalAmount ,2)?>/-</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="textcenter"></td>
+                    <th>Less <br> Net Total</th>
+                    <td><?php echo number_format($totalLess ,2)?>/- <br> <?php echo number_format($netTotal ,2)?>/- </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="textcenter"></td>
+                    <th>Received Amount</th>
+                    <td><?php echo number_format($receiveall ,2)?>/- </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="textcenter"></td>
+                    <th>Due Amount</th>
+                    <td><?php echo number_format($totalDue ,2)?>/- </td>
+                    <td></td>
+                </tr>
+            </tfoot>
         </table>
-    </main>
+
+        </div>
+
+
+    </blockquote>
+
+    <div class="flex anaround">
+        <div class='textcenter' style='border: 1px solid black; padding: 10px; width:200px'>
+            <button onclick="window.location.href = '/index.php';" class="btn">Back</button>
+            <button class="btn">Print</button>
+        </div>
     </div>
+
+
+    <script>
+    new QRCode(document.getElementById("qrcode"), {
+        text: window.location.host + "/printInvoice/onlyInvoice/?invoiceid=<?php echo $invoiceid ?>",
+        width: 55,
+        height: 55,
+        colorDark: "#000000",
+        colorLight: "#ffffff",
+        correctLevel: QRCode.CorrectLevel.H,
+    });
+    </script>
+    <script>
+    JsBarcode("#barcode", "<?php echo $invoiceid ?>", {
+        format: "CODE128",
+        lineColor: "#000",
+        width: 2,
+        height: 30,
+        displayValue: false,
+    });
+    </script>
 
 </body>
 

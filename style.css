@@ -285,6 +285,10 @@ cursor: pointer;
 .beet{
   justify-content: space-between;
 }
+.brcode{
+  position: absolute;
+  right: 50px;
+}
 @media only screen and (max-width: 480px) {
   .tabscroll{
     overflow: scroll;
