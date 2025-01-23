@@ -16,10 +16,11 @@ $dpct = $_POST['dpct'];
 $amaount = $_POST['amaount'];
 $groupx = $_POST['groupx'];
 $submitdate = $_POST['submitdate'];
+$typex = 'Unpiad';
 
 
-$sql = "INSERT INTO invoice (accountno, notes, description, crop, quantity, price, name, fname, invoiceid, unit, users, dpct, amaount, groupx, submitdate)
-VALUES ('$accountno', '$notes', '$description', '$crop', '$quantity', '$price', '$name', '$fname', '$invoiceid', '$unit', '$users', '$dpct', '$amaount', '$groupx', '$submitdate')";
+$sql = "INSERT INTO invoice (accountno, notes, description, crop, quantity, price, name, fname, invoiceid, unit, users, dpct, amaount, groupx, submitdate , typex)
+VALUES ('$accountno', '$notes', '$description', '$crop', '$quantity', '$price', '$name', '$fname', '$invoiceid', '$unit', '$users', '$dpct', '$amaount', '$groupx', '$submitdate' ,'$typex')";
 
 if ($conn->query($sql) === TRUE) {
     
@@ -47,7 +48,7 @@ $conn->close();
     </b>
     <div class="flex center">
         <div>
-            <p class="textcenter">Upload your data MySQL server !</p>
+            <p class="textcenter">Create and Upload your data MySQL server !</p>
             <h1 class='textcenter'><i class="fa-solid fa-stroopwafel fa-spin-pulse"></i></h1>
             <div class='textcenter' id="point"></div>
             <div class='amimetead'><div id='anyx' class='amimeteadx'></div></div>

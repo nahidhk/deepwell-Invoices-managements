@@ -273,7 +273,7 @@ cursor: pointer;
   height: 6px;
   width: 0px;
   background-color: #ff9100;
-  animation: ami 80s;
+  animation: ami 40s;
 }
 @keyframes ami {
   0%{width: 1px;}

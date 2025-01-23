@@ -1,5 +1,6 @@
 <?php
 require_once("../../config.php");
+require_once("../../inwords.php");
 date_default_timezone_set('Asia/Dhaka');
 // Ensure $conn is defined and properly initialized
 if (!isset($conn)) {
@@ -70,7 +71,7 @@ $customerData = $customerResult->fetch_assoc();
     </div>
     <hr>
     <div class="flex anaround">
-        <div id="qrcode"></div>
+       <div>Good Morining</div>
         <div style='border: 1px  dotted black; padding: 10px;'>
             <h2 class="nomargin">Cash Invoice</h2>
         </div>
@@ -123,9 +124,11 @@ $customerData = $customerResult->fetch_assoc();
 
                     <th>Detels</th>
                     <th>Land</th>
-                    <th>Price X</th>
-                    <th>Total Amount</th>
                     <th>Staps</th>
+                    <th>Price X</th>  
+                    <th>Total Amount</th>
+                    <th>Received Amount</th>
+                   
                 </tr>
             </thead>
             <tbody>
@@ -141,9 +144,10 @@ $customerData = $customerResult->fetch_assoc();
                     echo "<td>" . htmlspecialchars($invoice['id']) . "</td>"; 
                     echo "<td>" . htmlspecialchars($invoice['notes']) . "</td>";
                     echo "<td> (" . htmlspecialchars($invoice['description']) . ") " .$invoice['dpct']." ". $invoice['quantity']." ".  $invoice['unit']." ". $invoice['crop'].  "</td>"; 
+                    echo "<td>" . htmlspecialchars($invoice['users']) . "</td>";
                     echo "<td>" . number_format($invoice['price'],2) . "/-</td>"; 
                     echo "<td>" . number_format($invoice['amaount'], 2) . "/-</td>"; 
-                    echo "<td>" . htmlspecialchars($invoice['users']) . "</td>"; 
+                    echo "<td>" . number_format($invoice['receive'], 2) . "/-</td>"; 
                     echo "</tr>";
                     $amount = (float)$invoice['amaount']; 
                     $totalAmount += $amount;
@@ -160,28 +164,32 @@ $customerData = $customerResult->fetch_assoc();
             </tbody>
             <tfoot>
                 <tr>
-                    <td colspan="3" class="textcenter"></td>
+                     <td rowspan="4" colspan="4" class="textcenter">
+                        <div class="flex anaround">
+                        <div id="qrcode"></div>
+                       <div>
+                       <h1><?php echo htmlspecialchars($invoice['typex'])?></h1><p>In Words: <small> (<?php echo ucfirst(numberToWords($netTotal)); ?> Tk. Only)</small></p>
+                       </div>
+                        </div>
+                     </td> 
                     <th>Total Amount</th>
                     <th><?php echo number_format($totalAmount ,2)?>/-</th>
-                    <td></td>
+                    <!-- <td rowspan="4"></td> -->
                 </tr>
                 <tr>
-                    <td colspan="3" class="textcenter"></td>
+
                     <th>Less <br> Net Total</th>
-                    <td><?php echo number_format($totalLess ,2)?>/- <br> <?php echo number_format($netTotal ,2)?>/- </td>
-                    <td></td>
+                    <td><?php echo number_format($totalLess ,2)?>/- <br> <?php echo number_format($netTotal ,2)?>/-
+                    </td>
+                    
                 </tr>
                 <tr>
-                    <td colspan="3" class="textcenter"></td>
-                    <th>Received Amount</th>
-                    <td><?php echo number_format($receiveall ,2)?>/- </td>
-                    <td></td>
+                    <th> Total Received Amount</th>
+                    <td><?php echo number_format($receiveall ,2)?>/- </td>  
                 </tr>
                 <tr>
-                    <td colspan="3" class="textcenter"></td>
                     <th>Due Amount</th>
-                    <td><?php echo number_format($totalDue ,2)?>/- </td>
-                    <td></td>
+                    <td><?php echo number_format($totalDue ,2)?>/- </td>   
                 </tr>
             </tfoot>
         </table>
@@ -201,9 +209,10 @@ $customerData = $customerResult->fetch_assoc();
 
     <script>
     new QRCode(document.getElementById("qrcode"), {
-        text: window.location.host + "/printInvoice/onlyInvoice/?invoiceid=<?php echo $invoiceid ?>",
-        width: 55,
-        height: 55,
+        text: window.location.protocol + "//" + window.location.host + 
+                  "/printInvoice/onlyInvoice/?invoiceid=<?php echo $invoiceid ?>",
+        width: 90,
+        height: 90,
         colorDark: "#000000",
         colorLight: "#ffffff",
         correctLevel: QRCode.CorrectLevel.H,
