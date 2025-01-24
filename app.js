@@ -135,3 +135,26 @@ function allamaount(){
 
 }
 
+
+
+function setting(filedata) {
+    const filePath = `setting/components/${filedata}.html`;
+    setTimeout(() => {
+        myDismy();
+        myCrops();
+    }, 1000);
+    // Fetch the file dynamically
+    fetch(filePath)
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error(`File not found: ${filePath}`);
+            }
+            return response.text();
+        })
+        .then((html) => {
+            document.getElementById('hit').innerHTML = html;
+        })
+        .catch((error) => {
+            document.getElementById('hit').innerHTML = `<p>Error: ${error.message}</p>`;
+        });
+}

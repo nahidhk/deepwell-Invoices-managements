@@ -297,6 +297,9 @@ cursor: pointer;
   z-index: 999;
   color: rgb(0, 0, 0);
 }
+.mbmysqlactive{
+  display: none;
+}
 @media only screen and (max-width: 480px) {
   .tabscroll{
     overflow: scroll;
@@ -311,6 +314,7 @@ cursor: pointer;
     width: 90%;
   }
   .mbmysqlactive{
+    display: block;
     width: 100%;
     opacity: 0.2;
     position: fixed;

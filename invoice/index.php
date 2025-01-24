@@ -88,33 +88,35 @@
                     </form>
                 </div>
             </div>
-        <div class='flex center'>
-            <div>
-                <main class="border tabscroll">
-                    <table class="minimalistBlack frmbox">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Date</th>
-                                <th>Invoice ID</th>
-                                <th>Account No</th>
-                                <th>Name</th>
-                                <th>F. Name</th>
-                                <th>Group</th>
-                                <th>Land</th>
-                                <th>Price X</th>
-                                <th>Total Amount</th>
-                                <th>Notes</th>
-                                <th>Staps</th>
-                            </tr>
-                        </thead>
-                        <tbody id='invoices'>
 
-                        </tbody>
-                    </table>
-                </main>
-            </div>
-        </div>
+            
+
+            <div class='flex center'>   
+                    <main class="border tabscroll mbwidth90">
+                        <table class="minimalistBlack frmbox">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Date</th>
+                                    <th>Invoice ID</th>
+                                    <th>Account No</th>
+                                    <th>Name</th>
+                                    <th>F. Name</th>
+                                    <th>Group</th>
+                                    <th>Land</th>
+                                    <th>Price X</th>
+                                    <th>Total Amount</th>
+                                    <th>Notes</th>
+                                    <th>Staps</th>
+                                </tr>
+                            </thead>
+                            <tbody id='invoices'>
+
+                            </tbody>
+                        </table>
+                    </main>
+                </div>
+            
         </div>
     </section>
     <script src='/invoice-manager/invoicerun.js'></script>

@@ -35,7 +35,7 @@
             <!-- Tabel -->
 
             <div class="flex center ">
-                <main class="border  tabscroll mbwidth90">
+                <main class="border tabscroll mbwidth90">
                     <table class="minimalistBlack frmbox">
                         <thead>
                             <tr>
