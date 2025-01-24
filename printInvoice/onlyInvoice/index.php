@@ -141,13 +141,13 @@ $customerData = $customerResult->fetch_assoc();
                 $counter = 1; 
                 foreach ($invoices as $invoice) {
                     echo "<tr>";
-                    echo "<td>" . htmlspecialchars($invoice['id']) . "</td>"; 
+                    echo "<td>" .  $counter . "</td>"; 
                     echo "<td>" . htmlspecialchars($invoice['notes']) . "</td>";
                     echo "<td> (" . htmlspecialchars($invoice['description']) . ") " .$invoice['dpct']." ". $invoice['quantity']." ".  $invoice['unit']." ". $invoice['crop'].  "</td>"; 
                     echo "<td>" . htmlspecialchars($invoice['users']) . "</td>";
-                    echo "<td>" . number_format($invoice['price'],2) . "/-</td>"; 
-                    echo "<td>" . number_format($invoice['amaount'], 2) . "/-</td>"; 
-                    echo "<td>" . number_format($invoice['receive'], 2) . "/-</td>"; 
+                    echo "<td>" . number_format($invoice['price'],2) . "</td>"; 
+                    echo "<td>" . number_format($invoice['amaount'], 2) . "</td>"; 
+                    echo "<td>" . number_format($invoice['receive'], 2) . "</td>"; 
                     echo "</tr>";
                     $amount = (float)$invoice['amaount']; 
                     $totalAmount += $amount;
@@ -173,23 +173,23 @@ $customerData = $customerResult->fetch_assoc();
                         </div>
                      </td> 
                     <th>Total Amount</th>
-                    <th><?php echo number_format($totalAmount ,2)?>/-</th>
+                    <th><?php echo number_format($totalAmount ,2)?></th>
                     <!-- <td rowspan="4"></td> -->
                 </tr>
                 <tr>
 
                     <th>Less <br> Net Total</th>
-                    <td><?php echo number_format($totalLess ,2)?>/- <br> <?php echo number_format($netTotal ,2)?>/-
+                    <td><?php echo number_format($totalLess ,2)?> <br> <?php echo number_format($netTotal ,2)?>
                     </td>
                     
                 </tr>
                 <tr>
                     <th> Total Received Amount</th>
-                    <td><?php echo number_format($receiveall ,2)?>/- </td>  
+                    <td><?php echo number_format($receiveall ,2)?> </td>  
                 </tr>
                 <tr>
                     <th>Due Amount</th>
-                    <td><?php echo number_format($totalDue ,2)?>/- </td>   
+                    <td><?php echo number_format($totalDue ,2)?></td>   
                 </tr>
             </tfoot>
         </table>

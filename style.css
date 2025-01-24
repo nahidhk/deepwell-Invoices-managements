@@ -289,6 +289,14 @@ cursor: pointer;
   position: absolute;
   right: 50px;
 }
+.mysqlactive{
+  width: 100%;
+  opacity: 0.2;
+  position: fixed;
+  bottom: 10px;
+  z-index: 999;
+  color: rgb(0, 0, 0);
+}
 @media only screen and (max-width: 480px) {
   .tabscroll{
     overflow: scroll;
@@ -301,5 +309,14 @@ cursor: pointer;
   }
   .mbwidth90{
     width: 90%;
+  }
+  .mbmysqlactive{
+    width: 100%;
+    opacity: 0.2;
+    position: fixed;
+    top: 30%;
+    z-index: 999;
+    color: rgb(0, 0, 0);
+    transform: rotateZ(-50deg);
   }
 }
