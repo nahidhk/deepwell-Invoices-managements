@@ -61,8 +61,8 @@ $conn->close();
       function myanyx(){
     const anyx = document.getElementById('anyx');
     document.getElementById('point').innerHTML = anyx.clientWidth+'%';
-    if (anyx.clientWidth === 300) {
-      window.location.href=`/printInvoice/onlyInvoice/?invoiceid=<?php echo $invoiceid; ?>`;
+    if (anyx.clientWidth === 100) {
+      window.location.href=`/invoice/set/`;
     } 
 }
     </script>

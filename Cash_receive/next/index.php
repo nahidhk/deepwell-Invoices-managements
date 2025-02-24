@@ -26,7 +26,6 @@ if ($invoiceResult->num_rows === 0) {
 
 $invoices = $invoiceResult->fetch_all(MYSQLI_ASSOC);
 
-$accountno = $invoices[0]['accountno']; 
 
 
 $customerQuery = "SELECT * FROM farmers WHERE id = ?";
@@ -34,15 +33,16 @@ $customerStmt = $conn->prepare($customerQuery);
 if (!$customerStmt) {
     die("Prepare failed: " . $conn->error);
 }
-$customerStmt->bind_param("i", $accountno); // Bind $accountno as an integer
+$customerStmt->bind_param("i", $accno); 
 $customerStmt->execute();
 $customerResult = $customerStmt->get_result();
 
-if ($customerResult->num_rows === 0) {
-    die("Customer not found!");
-}
+// if ($customerResult->num_rows === 0) {
+//     die("Customer not found!");
+// }
 $customerData = $customerResult->fetch_assoc();
 ?>
+
 
 
 <!DOCTYPE html>
@@ -64,34 +64,45 @@ $customerData = $customerResult->fetch_assoc();
             <hr>
             <form action="/Cash_receive/next/" method="post">
                 <label for="">Account NO</label><br>
-                <input readonly name='accno' id='accno' value="<?php echo $accno ?>" type="number" class="input" required>
-
+                <input readonly name='accno' id='accno' value="<?php echo $accno ?>" type="number" class="input"
+                    required>
                 <br>
-               <div class="textcenter">
-               <button class='btn'>Next</button>
-               </div>
+                <label for="">Amount *</label><br>
+                <input type="number" id='amaount' class="input" required>
+                <input type="text">
+                <br>
+                <div class="textcenter">
+                    <button class='btn'>Next</button>
+                </div>
             </form>
         </div>
     </section>
 
 
+<h1>
+    <?php echo $customerData['credit'] ?>
+</h1>
 
+
+
+    <br><br>
     <!-- tabel -->
 
-<section class="flex center">
-    
-<table class="minimalistBlack">
+    <section class="flex center">
+
+        <table class="minimalistBlack">
             <thead>
                 <tr>
                     <th>#</th>
-
+                    <th>Date</th>
+                    <th>invoice NO</th>
                     <th>Detels</th>
                     <th>Land</th>
                     <th>Staps</th>
-                    <th>Price X</th>  
+                    <th>Price X</th>
                     <th>Total Amount</th>
-                    <th>invoice NO</th>
-                   
+
+
                 </tr>
             </thead>
             <tbody>
@@ -105,12 +116,13 @@ $customerData = $customerResult->fetch_assoc();
                 foreach ($invoices as $invoice) {
                     echo "<tr>";
                     echo "<td>" .  $counter . "</td>"; 
+                    echo "<td>" . date("d M Y, h:i A", strtotime($invoice['created'])) . "</td>";
+                    echo "<td>" . $invoice['invoiceid'] . "</td>"; 
                     echo "<td>" . htmlspecialchars($invoice['notes']) . "</td>";
                     echo "<td> (" . htmlspecialchars($invoice['description']) . ") " .$invoice['dpct']." ". $invoice['quantity']." ".  $invoice['unit']." ". $invoice['crop'].  "</td>"; 
                     echo "<td>" . htmlspecialchars($invoice['users']) . "</td>";
                     echo "<td>" . number_format($invoice['price'],2) . "</td>"; 
                     echo "<td>" . number_format($invoice['amaount'], 2) . "</td>"; 
-                    echo "<td>" . $invoice['invoiceid'] . "</td>"; 
                     echo "</tr>";
                     $amount = (float)$invoice['amaount']; 
                     $totalAmount += $amount;
@@ -127,14 +139,15 @@ $customerData = $customerResult->fetch_assoc();
             </tbody>
             <tfoot>
                 <tr>
-                     <td rowspan="4" colspan="4" class="textcenter">
+                    <td rowspan="4" colspan="6" class="textcenter">
                         <div class="flex anaround">
-                        <div id="qrcode"></div>
-                       <div>
-                       <h1><?php echo htmlspecialchars($invoice['typex'])?></h1><p>In Words: <small> (<?php echo ucfirst(numberToWords($netTotal)); ?> Tk. Only)</small></p>
-                       </div>
+                            <div id="qrcode"></div>
+                            <div>
+                                <p>In Words: <small> (<?php echo ucfirst(numberToWords($netTotal)); ?> Tk. Only)</small>
+                                </p>
+                            </div>
                         </div>
-                     </td> 
+                    </td>
                     <th>Total Amount</th>
                     <th><?php echo number_format($totalAmount ,2)?></th>
                     <!-- <td rowspan="4"></td> -->
@@ -144,20 +157,20 @@ $customerData = $customerResult->fetch_assoc();
                     <th>Less <br> Net Total</th>
                     <td><?php echo number_format($totalLess ,2)?> <br> <?php echo number_format($netTotal ,2)?>
                     </td>
-                    
+
                 </tr>
                 <tr>
                     <th> Total Received Amount</th>
-                    <td><?php echo number_format($receiveall ,2)?> </td>  
+                    <td><?php echo number_format($receiveall ,2)?> </td>
                 </tr>
                 <tr>
                     <th>Due Amount</th>
-                    <td><?php echo number_format($totalDue ,2)?></td>   
+                    <td><?php echo number_format($totalDue ,2)?></td>
                 </tr>
             </tfoot>
         </table>
 
-</section>
+    </section>
 
 
     <script src='/app.js'></script>

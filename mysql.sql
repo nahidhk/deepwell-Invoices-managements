@@ -83,3 +83,12 @@ ADD netTotal DECIMAL(15, 2),
 ADD due DECIMAL(15, 2),
 ADD receive DECIMAL(15, 2);
 
+
+
+CREATE TABLE accounttk (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    accno INT,
+    totaltaka DECIMAL(10, 2),
+    totalless DECIMAL(10, 2),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);

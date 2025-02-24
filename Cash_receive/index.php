@@ -10,6 +10,7 @@
 
 <body>
     <?php require_once('../components/nav.html') ?>
+    <br><br><br>
     <section class="flex center">
         <div class="frmbox">
             <h2>Customer Cash Recave</h2>
